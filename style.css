@@ -144,6 +144,27 @@ header nav .menu{
     border-radius: 0;
 }
 
+body.menu-visible{
+    overflow: hidden;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: 999;
+}
+
+.menu-visible .overlay{
+    opacity: 0;
+    visibility: visible;
+}
+
 header nav .menu ul{
     align-items: flex-start;
     line-height: 3em;
@@ -152,14 +173,58 @@ header nav .menu ul{
 header nav .menu ul li a{
     font-size: 1.5em;
     color: var(--dark-color);
-    
 }
 
 header nav .menu ul li a:hover{
     color: var(--white-color);
 }
 
+header .search{
+    background-color: var(--white-color);
+    height: 0;
+    visibility: hidden;
+    transition: height .3s, visibility .3s;    
+}
 
+header .s-trigger i.ri-close-line,
+.showsearch header .s-trigger .ri-search-line{
+    display: none;
+}
+
+.showsearch header .s-trigger i.ri-close-line{
+    display: block;
+}
+
+.showsearch header .s-trigger{
+    background-color: #ff25251a; 
+    color: var(--secondary-color);
+    border-radius: 7px;
+    transition: var(--trans-back-co);
+}
+
+.showsearch header .s-trigger:hover{
+    background-color: #ff25254a;
+}
+.showsearch .search{
+    height: 60px;
+    visibility: inherit;
+}
+
+header .search input{
+    width: 100%;
+    line-height: 60px;
+    outline: 0;
+    border: 0;
+    font-family: inherit;
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align: right;
+    background-color: transparent;
+}
+
+header .search input::placeholder{
+    color: var(--dark-color);
+}
 
 
 @media screen and (min-width: 768px) {
@@ -180,6 +245,8 @@ header nav .menu ul li a:hover{
         padding: 0;
         max-width: max-content;
         background-color: transparent;
+        visibility: inherit;
+        transform: none;
     }
 
     header nav .menu ul li a{
