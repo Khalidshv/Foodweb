@@ -28,3 +28,27 @@ sTrigger.addEventListener('click', () => {
 addclass.classList.toggle('showsearch')
 })
 
+
+//Swiper
+const sliderThumb = new Swiper('.thumb-nav', {
+    spaceBetween: 10,
+    slidePerView: 3,
+    slidePerGroup: false,
+    breakpoints:{
+        992:{
+            direction:'vertical'
+        }
+    }
+  });
+
+const theSlider = new Swiper('.thumb-big', { 
+    slidePerView: 1,
+    pagination: {
+        el: '.swiper-pagination',
+      },
+
+    thumbs: {
+        swiper: sliderThumb,
+    }
+  });
+  
